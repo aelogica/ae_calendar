@@ -1,0 +1,17 @@
+%nav.top-bar{data: {topbar: ''}}
+  %ul.title-area
+    %li.name
+      %h1= link_to 'Another Admin Tool', main_app.root_path
+    %li.toggle-topbar.menu-icon
+      %a
+
+  %section.top-bar-section
+    %ul.right
+      %li= link_to 'Employees', main_app.employees_path
+      %li= link_to 'Events', root_path
+      %li= link_to 'Leaves', main_app.leaves_path
+      %li.has-dropdown
+        %a{:href => "#"}= current_employee.email
+        %ul.dropdown.user-profile-dropdown
+          %li= link_to 'Update Profile', main_app.employee_path(current_employee)
+          %li= link_to 'Sign Out', main_app.destroy_employee_session_path, :method => :delete
